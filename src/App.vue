@@ -1,6 +1,6 @@
 <template>
   <main style="max-width: 600px; margin: 2rem auto; font-family: sans-serif">
-    <h1>F1 Assistant Chat</h1>
+    <h1>F1 Assistant Chat - 2026 Regulations</h1>
 
     <div style="margin-bottom: 1rem">
       <textarea
@@ -31,7 +31,6 @@
 import { ref } from 'vue'
 import { useAssistant } from './useAssistant.js'
 
-// Replace these with your real API key and assistant ID
 const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY
 const ASSISTANT_ID = import.meta.env.VITE_ASSISTANT_ID
 

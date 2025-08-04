@@ -84,9 +84,12 @@ export function useAssistant(apiKey, assistantId) {
       if (!messagesRes.ok) throw new Error('Failed to fetch messages')
       const messagesData = await messagesRes.json()
 
-      const assistantMsg = [...messagesData.data].reverse().find((m) => m.role === 'assistant')
+      // Sort assistant messages by created time descending
+      const sorted = messagesData.data
+        .filter((m) => m.role === 'assistant')
+        .sort((a, b) => b.created_at - a.created_at)
 
-      const replyText = assistantMsg ? assistantMsg.content?.[0]?.text?.value : null
+      const replyText = sorted[0]?.content?.[0]?.text?.value || 'No reply found'
 
       loading.value = false
 
